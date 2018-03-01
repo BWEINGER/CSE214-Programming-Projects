@@ -1,0 +1,146 @@
+/**
+ * This class represents a with a title, author, borrower, and a number indicating its condition
+ * @author Brett Weinger, ID #: 111639717
+ */
+
+public class Book {
+
+	//Declare instance variables
+	private String title;
+	private String author;
+	private String borrower;
+	private int condition;
+	
+	/**
+	 * This is a constructor used to create a default book object
+	 */
+	public Book() {
+		title = "Unknown Book";
+		author = "Unknown Author";
+		condition = 5;
+		borrower = "";
+	}
+	
+	/**
+	 * This is a constructor used to create a book object specific to user input
+	 * @param title
+	 *	The title of the book
+	 * @param author
+	 * 	The author of the book
+	 * @param condition
+	 * 	The condition of the book, with 1 being the worst and 5 being the best
+	 */
+	public Book(String title, String author, int condition) {
+		this.title = title;
+		this.author = author;
+		this.condition = condition;
+		borrower = "";
+	}
+	
+	/**
+	 * @return
+	 * 	The title of the book
+	 */
+	public String getTitle() {
+		return title;
+	}
+
+	/**
+	 * This method changes the book's title
+	 * @param title
+	 * 	The new name of the book
+	 */
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	
+	/**
+	 * @return
+	 * 	The author of the book
+	 */
+	public String getAuthor() {
+		return author;
+	}
+
+	/**
+	 * This method changes the book's author
+	 * @param author
+	 * 	The new author of the book
+	 */
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+
+	/**
+	 * @return
+	 * 	The current borrower of the book. May return an empty string if no borrower exists.
+	 */
+	public String getBorrower() {
+		return borrower;
+	}
+
+	/**
+	 * This method changes the book's borrower
+	 * @param borrower
+	 * 	The new borrower of the book
+	 */
+	public void setBorrower(String borrower) {
+		this.borrower = borrower;
+	}
+
+	/**
+	 * @return
+	 * 	The condition of the book. 1 represents the worst condition, while 5 represents the best.
+	 */
+	public int getCondition() {
+		return condition;
+	}
+
+	/**
+	 * This method changes the book's condition
+	 * @param condition
+	 * 	The new condition of the book
+	 */
+	public void setCondition(int condition) {
+		this.condition = condition;
+	}
+	
+	/**
+	 * Checks if two books are equal; that is, all of their parameters, except for their borrower, are the same
+	 * @param
+	 * 	An object to compare to the book
+	 * @returns
+	 * 	A boolean representing whether or not the books are equal
+	 */
+	public boolean equals(Object obj) {
+		if(obj instanceof Book) { //Must be able to cast obj to a book
+			Book book = (Book)obj;
+			if(title.equals(book.getTitle()) && author.equals(book.getAuthor()) && condition == book.getCondition()) {
+				return true; //equal
+			}
+		}
+		return false; //Unequal if method reaches this line
+	}
+	
+	/**
+	 * Copies a book object, leaving the borrower field blank
+	 * @returns
+	 * 	A clone of the current book
+	 */
+	public Book clone() {
+		return new Book(this.title, this.author, this.condition);
+	}
+	
+	/**
+	 * This method is used to print out information regarding the book object
+	 * @returns
+	 * 	A string containing the book's title, author, condition, and borrower. If the borrower field is blank, "none" is displayed instead.
+	 */
+	public String toString() {
+		String printBorrower = borrower;
+		if(printBorrower.equals("")) { //addresses possibility of no borrower
+			printBorrower = "<none>";
+		}
+		return title + "\t\t\t" + author + "\t" + condition + "\t" + printBorrower;
+	}
+}
