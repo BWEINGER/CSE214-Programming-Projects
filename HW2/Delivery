@@ -1,0 +1,84 @@
+/**
+ * This class represents a delivery with a source location, destination location, and specific instructions regarding that delivery
+ * @author Brett Weinger, ID #: 111639717
+ */
+public class Delivery {
+	private String source;
+	private String dest;
+	private String instruction;
+	
+	/**
+	 * This is a constructor used to create a delivery object specific to user input
+	 * @param source
+	 *	Where the delivery is sent from
+	 * @param dest
+	 * 	Where the delivery should arrive
+	 * @param instruction
+	 * 	Any additional instructions important to the delivery
+	 */
+	public Delivery(String source, String dest, String instruction) {
+		this.source = source;
+		this.dest = dest;
+		this.instruction = instruction;
+	}
+
+	/**
+	 * @return
+	 * 	The source location of the delivery
+	 */
+	public String getSource() {
+		return source;
+	}
+
+	/**
+	 * This method changes the delivery's source location
+	 * @param source
+	 * 	The new source for the delivery
+	 */
+	public void setSource(String source) {
+		this.source = source;
+	}
+
+	/**
+	 * @return
+	 * 	The destination location of the delivery
+	 */
+	public String getDest() {
+		return dest;
+	}
+
+	/**
+	 * This method changes the delivery's destination
+	 * @param dest
+	 * 	The new destination for the delivery
+	 */
+	public void setDest(String dest) {
+		this.dest = dest;
+	}
+
+	/**
+	 * @return
+	 * 	Any instructions specific to the delivery
+	 */
+	public String getInstruction() {
+		return instruction;
+	}
+
+	/**
+	 * This method changes the delivery's instructions
+	 * @param instruction
+	 * 	The new instructions for the delivery
+	 */
+	public void setInstruction(String instruction) {
+		this.instruction = instruction;
+	}
+	
+	/**
+	 * This method is used to print out information regarding the delivery
+	 * @returns
+	 * 	A string containing the delivery's source, destination, and any instructions
+	 */
+	public String toString() {
+		return "Source: " + source + "\tDestination: " + dest + "\tInstruction: " + instruction;
+	}
+}
